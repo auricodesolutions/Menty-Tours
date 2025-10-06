@@ -1,0 +1,225 @@
+/* ===== Tour Packages Section ===== */
+.tp-section {
+  padding: 100px 0;
+  background: #f9fafc;
+  display: flex;
+  justify-content: center;
+}
+
+.tp-container {
+  width: min(1200px, 90%);
+  margin: auto;
+}
+
+.tp-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tp-eyebrow {
+  color: #d4af37;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.tp-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0a2239;
+  margin: 0.5rem 0;
+}
+
+.tp-sub {
+  color: #5e6c84;
+  max-width: 600px;
+  margin: 0.5rem auto 2rem;
+}
+
+/* ===== Category Filter ===== */
+.tp-filters {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.tp-chip {
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 30px;
+  margin: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tp-chip:hover,
+.tp-chip.is-active {
+  background: linear-gradient(90deg, #f5c24b, #f7ad1e);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ===== Package Grid ===== */
+.tp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.tp-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.tp-media {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+}
+
+.tp-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tp-card:hover .tp-media img {
+  transform: scale(1.08);
+}
+
+.tp-duration {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: #fff;
+  color: #0a2239;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tp-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(90deg, #ffb300, #ffca28);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ===== Card Body ===== */
+.tp-body {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tp-body h3 {
+  font-size: 1.2rem;
+  color: #0a2239;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.tp-places {
+  font-size: 0.9rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.tp-card__desc {
+  color: #7a889e;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+/* ===== Card Footer ===== */
+.tp-footer {
+  margin-top: auto;
+}
+
+.tp-price {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.tp-price strong {
+  color: #0a2239;
+}
+
+.tp-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.tp-btn {
+  border: none;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.tp-btn--ghost {
+  border: 1px solid #0a2239;
+  background: transparent;
+  color: #0a2239;
+}
+
+.tp-btn--ghost:hover {
+  background: #0a2239;
+  color: #fff;
+}
+
+.tp-btn--gold {
+  background: linear-gradient(90deg, #f5c24b, #f7ad1e);
+  color: #fff;
+  font-weight: 600;
+}
+
+.tp-btn--gold:hover {
+  opacity: 0.9;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .tp-section {
+    padding: 70px 0;
+  }
+  .tp-title {
+    font-size: 1.8rem;
+  }
+  .tp-grid {
+    gap: 1.5rem;
+  }
+}

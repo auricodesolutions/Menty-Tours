@@ -1,0 +1,183 @@
+.asla-page {
+  font-family: "Poppins", sans-serif;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+/* ---------- Hero ---------- */
+.asla-hero {
+  position: relative;
+  background: url("../../assets/travel.jpg") center/cover fixed no-repeat;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.asla-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+}
+
+.asla-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.asla-hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.asla-hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+}
+
+/* ---------- Sections ---------- */
+.asla-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: 5rem 8%;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.asla-section:nth-child(even) {
+  background: #f9fafb;
+}
+
+.asla-section.asla-alt {
+  flex-direction: row-reverse;
+}
+
+.asla-text {
+  flex: 1 1 450px;
+}
+
+.asla-text h2 {
+  color: #0b5b48;
+  font-family: "Playfair Display", serif;
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.asla-icon {
+  color: #ffb703;
+  flex-shrink: 0;
+}
+
+.asla-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.asla-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.asla-image img {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.asla-image img:hover {
+  transform: scale(1.05) rotate(0.5deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- CTA ---------- */
+.asla-cta {
+  text-align: center;
+  background: linear-gradient(135deg, #0b5b48, #006e51);
+  color: #fff;
+  padding: 5rem 2rem;
+}
+
+.asla-cta h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.asla-cta p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+}
+
+.asla-btn {
+  background: #ffb703;
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 0.9rem 2.3rem;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.asla-btn:hover {
+  background: #ffd166;
+  transform: translateY(-3px);
+}
+
+/* ---------- Animations ---------- */
+.asla-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.asla-reveal.asla-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .asla-section {
+    flex-direction: column;
+    padding: 3.5rem 6%;
+  }
+
+  .asla-text, .asla-image {
+    flex: 1 1 100%;
+    text-align: left;
+  }
+
+  .asla-hero-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .asla-hero-content p {
+    font-size: 1rem;
+  }
+}

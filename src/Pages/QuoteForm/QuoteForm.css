@@ -1,0 +1,228 @@
+/* ====== Base Layout ====== */
+.quote-section {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fffaf2 0%, #fefcf9 100%);
+  animation: fadeIn 0.7s ease;
+  overflow: hidden;
+}
+
+/* ====== Left Section (Tour Highlights) ====== */
+.quote-left {
+  flex: 1.2;
+  position: relative;
+  overflow: hidden;
+}
+.resort-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  transform: scale(1.05);
+  transition: transform 10s ease;
+}
+.resort-image:hover {
+  transform: scale(1.1);
+}
+.resort-text {
+  position: relative;
+  z-index: 2;
+  padding: 3rem;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+.resort-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.resort-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #fcd56b;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+.resort-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f8f8f8;
+  max-width: 600px;
+}
+.highlight-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+.highlight-list li {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  opacity: 0.9;
+}
+
+/* ====== Right Section (Form) ====== */
+.quote-right {
+  flex: 1;
+  background: #ffffff;
+  padding: 3rem 2.5rem;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: all 0.8s ease;
+}
+.quote-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0b3d91;
+  margin-bottom: 0.5rem;
+}
+.form-subtext {
+  text-align: center;
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* ====== Form Styling ====== */
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  animation: floatUp 0.6s ease both;
+}
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+  font-family: inherit;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #fcbf49;
+  background-color: #fffdf5;
+  box-shadow: 0 0 0 3px rgba(252, 191, 73, 0.25);
+  outline: none;
+}
+.form-group select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #fcbf49 50%),
+    linear-gradient(135deg, #fcbf49 50%, transparent 50%);
+  background-position: calc(100% - 20px) center, calc(100% - 15px) center;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+.form-row .half {
+  flex: 1;
+}
+
+/* ====== Submit Button ====== */
+.submit-btn {
+  margin-top: 0.6rem;
+  background: linear-gradient(135deg, #fcd56b, #fda531);
+  color: #222;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+.submit-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.submit-btn:hover::after {
+  transform: translateX(100%);
+}
+.submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px rgba(252, 213, 107, 0.35);
+}
+
+/* ====== Animations ====== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes floatUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 992px) {
+  .quote-section {
+    flex-direction: column;
+  }
+  .quote-left,
+  .quote-right {
+    flex: 1 1 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+  .resort-text {
+    padding: 2rem;
+    text-align: center;
+  }
+  .quote-right {
+    padding: 2rem 1.5rem;
+    box-shadow: none;
+  }
+  .form-title {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.9rem;
+  }
+  .form-subtext {
+    font-size: 0.88rem;
+  }
+}

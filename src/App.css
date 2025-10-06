@@ -1,3 +1,28 @@
+/* ===== Global Resets & Layout Fix ===== */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* ✅ removes white gap on mobile */
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== App Defaults ===== */
 .App {
   text-align: center;
 }
@@ -29,10 +54,6 @@
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

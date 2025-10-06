@@ -1,0 +1,253 @@
+/* ===== Menty Tours — OurPartners.css (3D Travel Edition + Auto Carousel) ===== */
+.op2 {
+  --ink: #0f172a;
+  --ink-soft: #5c6b7e;
+  --surface: #ffffff;
+  --surface-soft: #f6f9fd;
+  --bd: #e6edf7;
+  --ring: #c9a24b;
+  --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.12);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  background:
+    radial-gradient(1400px 600px at 50% -10%, rgba(3, 102, 214, 0.07), transparent 60%),
+    linear-gradient(180deg, #ffffff, var(--surface-soft));
+  padding: clamp(50px, 6vw, 90px) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* floating golden glows */
+.op2::before,
+.op2::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: 0.25;
+  background: radial-gradient(circle at 50% 50%, #c9a24b, transparent 70%);
+  animation: floatGlow 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.op2::before { top: -100px; left: -100px; width: 220px; height: 220px; }
+.op2::after { bottom: -100px; right: -100px; width: 260px; height: 260px; animation-delay: -7s; }
+@keyframes floatGlow {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(20px) scale(1.05); }
+}
+
+/* ===== Container ===== */
+.op2-container {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.op2-head {
+  text-align: center;
+  margin-bottom: 28px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.op2-head.show { opacity: 1; transform: none; }
+
+.op2-eyebrow {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #eaf1fb;
+  color: #0f2642;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+.op2-title {
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1.12;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+.op2-sub {
+  color: var(--ink-soft);
+  max-width: 70ch;
+  margin: 0 auto;
+  font-size: clamp(0.96rem, 1.4vw, 1.08rem);
+  line-height: 1.6;
+}
+
+/* ===== Partner Card ===== */
+.op2-card {
+  display: grid;
+  place-items: center;
+  height: 110px;
+  width: 220px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff, #f9fbff);
+  border: 1px solid var(--bd);
+  box-shadow: var(--shadow);
+  position: relative;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+  overflow: hidden;
+  will-change: transform;
+}
+@media (max-width: 520px) {
+  .op2-card {
+    height: 80px;
+    width: 180px;
+    border-radius: 18px;
+  }
+}
+
+.op2-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 40% 20%, rgba(201, 162, 75, 0.08), transparent 60%);
+  z-index: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.op2-card:hover::before { opacity: 0.18; }
+
+.op2-card:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: var(--shadow-hover);
+  border-color: #d8e5f5;
+}
+
+/* gold shimmer reflection */
+.op2-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.5) 0%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 1.4s var(--ease);
+  z-index: 2;
+}
+.op2-card:hover::after { transform: translateX(100%); }
+
+.op2-logo {
+  max-width: calc(70% - 28px);
+  max-height: calc(70% - 22px);
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  z-index: 1;
+}
+
+/* ===== Auto Carousel (CSS Infinite Scroll) ===== */
+.op2-carousel {
+  position: relative;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.op2-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.op2-rail {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 4vw, 80px);
+  animation: scrollLoop 35s linear infinite;
+}
+
+/* Infinite loop animation */
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.op2-carousel:hover .op2-rail {
+  animation-play-state: paused;
+}
+
+.op2-snap {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+/* Hide nav buttons since auto-scroll replaces them */
+.op2-nav {
+  display: none !important;
+}
+
+/* ===== Cloud (Static Grid alternative) ===== */
+.op2-cloud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+  margin-top: 26px;
+  list-style: none;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.op2-cloud.show { opacity: 1; transform: none; }
+
+/* ===== Reveal animation ===== */
+.op2-reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.op2-reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== Keyboard focus ===== */
+.op2-card:focus-visible,
+.op2-nav:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ===== Responsive Tweaks ===== */
+@media (max-width: 900px) {
+  .op2-rail {
+    gap: 36px;
+    animation-duration: 45s; /* slower scroll on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .op2-rail {
+    gap: 28px;
+    animation-duration: 55s; /* even slower on mobile */
+  }
+
+  .op2-card {
+    width: 180px;
+    height: 90px;
+    border-radius: 16px;
+  }
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .op2-rail {
+    animation: none !important;
+  }
+  .op2-reveal,
+  .op2-card,
+  .op2-carousel,
+  .op2-cloud {
+    transition: none !important;
+    transform: none !important;
+  }
+  .op2::before,
+  .op2::after { display: none; }
+}
