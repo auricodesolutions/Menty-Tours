@@ -295,3 +295,45 @@
   }
   .wcu-ornament { display: none; }
 }
+
+/* ===== keep your existing CSS ABOVE this line ===== */
+
+/* --- mobile carousel behavior --- */
+@media (max-width: 640px) {
+  .wcu-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+  }
+
+  .wcu-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(10,22,65,0.08);
+    margin-right: 4px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .wcu-card:last-child {
+    margin-right: 20px;
+  }
+
+  /* Hide scroll bar for mobile aesthetics */
+  .wcu-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .wcu-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* subtle scale-up on tap/hover */
+  .wcu-card:active {
+    transform: scale(0.98);
+  }
+}

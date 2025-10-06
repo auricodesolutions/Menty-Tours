@@ -197,3 +197,14 @@
   .navbar, .nav-container, .mobile-drawer { max-width: 100vw !important; }
   body { overflow-x: hidden; }
 }
+
+/* ===== Infinite Bounce Animation for Plan My Trip ===== */
+@keyframes bounceInf {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.nav-btn,
+.drawer-btn {
+  animation: bounceInf 2.6s ease-in-out infinite;
+}

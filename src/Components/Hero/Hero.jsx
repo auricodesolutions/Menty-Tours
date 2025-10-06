@@ -92,13 +92,13 @@ export default function Hero() {
           <p className="eyebrow">Sri Lanka • Authentic &amp; Tailor-Made</p>
           <h1 className="hero__title">Where Wonders Await</h1>
           <p className="hero__subtitle">
-            Your journey, your pace — curated stays, epic views, and real local experiences.
+            Your journey, your pace ,curated stays, epic views, and real local experiences.
           </p>
 
           <ul className="hero__chips" aria-label="Highlights">
+            <li><Compass size={22} strokeWidth={1.8} /> Local Guides</li>
             <li><Palmtree size={22} strokeWidth={1.8} /> Tropical Escapes</li>
             <li><MapPin size={22} strokeWidth={1.8} /> Hidden Destinations</li>
-            <li><Compass size={22} strokeWidth={1.8} /> Local Guides</li>
           </ul>
 
           <div className="cta">
